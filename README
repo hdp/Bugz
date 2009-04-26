@@ -1,0 +1,4 @@
+Create symlinks, then run the standalone server:
+
+  perl script/bugz_setup.pl /path/to/bugzilla
+  perl script/bugz_server.pl -d

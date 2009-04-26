@@ -5,6 +5,7 @@ use warnings;
 use Cwd ();
 use File::Spec;
 use File::Basename;
+use File::Path;
 
 die "usage: $0 /path/to/bugzilla\n"
   unless @ARGV;
@@ -15,6 +16,9 @@ unlink(
   glob('root/cgi-bin/*'),
   qw(root/images root/js root/skins)
 );
+
+(-d "root/cgi-bin") || mkpath("root/cgi-bin")
+  or die "Can't mkpath('root/cgi-bin'): $!";
 
 for my $cgi (glob("$bugz_path/*.cgi")) {
   my $dest = "root/cgi-bin/" . basename($cgi);

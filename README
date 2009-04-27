@@ -1,6 +1,11 @@
 1) Install Bugzilla
 
-2) Create symlinks, then run the standalone server:
+2) Install dependencies
+
+  perl Makefile.PL
+  make installdeps
+
+3) Create symlinks, then run the standalone server:
 
   perl script/bugz_setup.pl /path/to/bugzilla
   perl script/bugz_server.pl -d

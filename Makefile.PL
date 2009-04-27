@@ -12,7 +12,6 @@ requires 'parent';
 requires 'Config::General'; # This should reflect the config file format you've chosen
                  # See Catalyst::Plugin::ConfigLoader for supported formats
 
-# both of these are unreleased versions with bugfixes
 requires 'Catalyst::Controller::WrapCGI' => '0.0029';
 requires 'HTTP::Request::AsCGI' => '0.6';
 

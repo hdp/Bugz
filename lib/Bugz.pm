@@ -13,6 +13,9 @@ use Catalyst qw/
 
 our $VERSION = '0.01';
 
+eval { require Bugz::lib; 1 }
+  or die "Can't continue without Bugz::lib; run script/bugz_setup.pl: $@";
+
 __PACKAGE__->config( name => 'Bugz' );
 __PACKAGE__->config->{static}->{dirs} = [ qw(images skins js) ];
 __PACKAGE__->setup();

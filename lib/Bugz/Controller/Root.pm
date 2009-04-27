@@ -2,7 +2,6 @@ package Bugz::Controller::Root;
 
 use parent 'Catalyst::Controller::CGIBin';
 use Moose;
-use lib '../bugzilla-3.2.3';
 
 __PACKAGE__->config->{namespace} = '';
 

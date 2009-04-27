@@ -6,6 +6,7 @@ use Cwd ();
 use File::Spec;
 use File::Basename;
 use File::Path;
+use IO::File;
 
 die "usage: $0 /path/to/bugzilla\n"
   unless @ARGV;
@@ -31,3 +32,11 @@ for my $dir (qw(images js skins)) {
     or die "Can't symlink root/$dir -> $bugz_path/$dir: $!";
   print "root/$dir -> $bugz_path/$dir\n";
 }
+
+my $fh = IO::File->new('lib/Bugz/lib.pm', 'w')
+  or die "Can't open lib/Bugz/lib.pm for writing: $!";
+$fh->print(<<"END");
+package Bugz::lib;
+use lib "$bugz_path";
+1;
+END

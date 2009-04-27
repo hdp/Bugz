@@ -1,4 +1,10 @@
-Create symlinks, then run the standalone server:
+1) Install Bugzilla
+
+2) Create symlinks, then run the standalone server:
 
   perl script/bugz_setup.pl /path/to/bugzilla
   perl script/bugz_server.pl -d
+
+https isn't supported by Catalyst's standalone server, so you'll have to either
+use a real deployment mechanism (e.g. reverse proxy or fastcgi) or tunnel over
+ssh or something.
